@@ -1,0 +1,5 @@
+{
+    "guest": "/auth/guest",
+    "login": "/auth/login",
+    "register": "/auth/signin"
+}

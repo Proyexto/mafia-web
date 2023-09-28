@@ -1,14 +1,7 @@
-import React from 'react'
+import { Home } from "./Home";
 
-export const Home = () => {
-  return (
-    <section>
-      <div>
-        <h1>Mafia web</h1>
-        <button>Jugar ahora</button>
-      </div>
-    </section>
-  )
-}
+export const App = () => {
+  return <Home />;
+};
 
-export default Home;
+export default App;
