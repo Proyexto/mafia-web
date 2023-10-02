@@ -5,10 +5,11 @@ import style from "./style.module.scss";
 export const Home = () => {
   return (
     <section className={style.homeContainer}>
-      <h1>Mafia web</h1>
-      <Link href={routes.guest}>Ingrear como Invitado</Link>
-      <Link href={routes.register}>Iniciar sesion</Link>
-      <Link href={routes.register}>Crear cuenta</Link>
+      <h1>Mafia Web</h1>
+      <form>
+        <input type="text" placeholder="Código de Sala" />
+        <button>Ingresar</button>
+      </form>
     </section>
   );
 };
