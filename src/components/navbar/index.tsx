@@ -3,17 +3,20 @@
 import { useState } from "react";
 import style from "./style.module.scss";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Navbar = () => {
-  const [showProfileMenu, SetOnClickProfile] = useState(true);
+  const [showProfileMenu, SetOnClickProfile] = useState(false);
   const onClickProfile = () => {
     SetOnClickProfile(!showProfileMenu);
   };
   return (
     <nav className={style.navbar}>
       <Link href="/">
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Red_Hat_logo.svg/1200px-Red_Hat_logo.svg.png"
+        <Image
+          src="/img/logo.png"
+          width={500}
+          height={500}
           alt="Logo"
           id="logo"
         />
@@ -22,8 +25,10 @@ export const Navbar = () => {
         <div id="profile-details" onClick={() => onClickProfile()}>
           <span>Eugenio Manolo</span>
           <figure>
-            <img
-              src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            <Image
+              src="/img/pfp-default.webp"
+              width={200}
+              height={200}
               alt="Profile-Picture"
               id="profile-picture"
             />

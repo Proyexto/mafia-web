@@ -1,11 +1,15 @@
+@import "@/styles/_text.scss";
+
 .navbar {
   height: var(--navSize);
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 5rem;
+  user-select: none;
   img[id="logo"] {
     width: 8rem;
+    pointer-events: none;
   }
   div[id="profileContainer"] {
     display: flex;
@@ -13,7 +17,6 @@
     align-items: center;
     position: relative;
     div[id="profile-details"] {
-      height: fit-content;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -21,11 +24,10 @@
       cursor: pointer;
       padding: 0 0.75rem;
       border-radius: 0.75rem;
-      user-select: none;
       gap: 1rem;
       span {
-        font-size: 1.25rem;
-        color: white;
+        @include defaultText;
+        color: var(--white);
         font-weight: 600;
       }
       figure {
@@ -38,29 +40,30 @@
           height: 3.5rem;
           border-radius: 50%;
           pointer-events: none;
-          background-color: white;
+          background-color: var(--white);
+          pointer-events: none;
         }
         span {
           font-size: 0.75rem;
           position: absolute;
           bottom: 0;
-          background-color: green;
+          background-color: var(--green);
           border-radius: 0.5rem;
           padding: 0.1rem 0.5rem;
         }
       }
       &:hover {
-        background-color: #adadad77;
+        background-color: var(--hoverEffectButtonColor);
       }
     }
     div[id="profile-menu"] {
       height: max-content;
       width: 100%;
       border-radius: 0.75rem;
-      background-color: white;
+      background-color: var(--white);
       position: absolute;
       top: 125%;
-      animation: open-menu 0.25s ease-in-out;
+      animation: open-menu 0.25s ease;
       ul {
         display: grid;
         grid-auto-rows: 3rem;
@@ -72,7 +75,7 @@
           justify-content: center;
           cursor: pointer;
           &:hover {
-            background-color: #adadad77;
+            background-color: var(--hoverEffectButtonColor);
           }
         }
       }
