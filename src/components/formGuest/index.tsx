@@ -1,8 +1,9 @@
 "use client";
 
+/* Utils */
 import { FormEvent, useState } from "react";
 import { Pic } from "@/types";
-import Image from "next/image";
+// import Image from "next/image";
 
 interface Props {
   listPics: Pic[];

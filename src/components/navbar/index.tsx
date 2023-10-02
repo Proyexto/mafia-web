@@ -1,9 +1,14 @@
 "use client";
 
+/* Utils */
 import { useState } from "react";
-import style from "./style.module.scss";
+
+/* Components */
 import Link from "next/link";
 import Image from "next/image";
+
+/* Styles */
+import style from "./style.module.scss";
 
 export const Navbar = () => {
   const [showProfileMenu, SetOnClickProfile] = useState(false);

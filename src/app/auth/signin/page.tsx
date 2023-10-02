@@ -1,6 +1,9 @@
 "use client";
 
+/* Utils */
 import { FormEvent } from "react";
+
+/* Styles */
 import style from "./style.module.scss";
 
 export const Signin = () => {

@@ -1,6 +1,11 @@
+/* Utils */
 import { FormEvent, useEffect, useState } from "react";
-import { FormGuest } from "@/components/formGuest";
 import { getPics } from "@/services";
+
+/* Components */
+import { FormGuest } from "@/components/formGuest";
+
+/* Styles */
 import style from "./style.module.scss";
 
 export const Guest = async () => {

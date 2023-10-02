@@ -1,9 +1,12 @@
 "use client";
 
+/* Utils */
+import { useRouter } from "next/navigation";
 import { FormEvent } from "react";
 import routes from "@/routes.json";
+
+/* Styles */
 import style from "./style.module.scss";
-import { useRouter } from "next/navigation";
 
 export const Home = () => {
   const { push } = useRouter();
