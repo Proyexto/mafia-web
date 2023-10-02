@@ -1,20 +1,21 @@
 :root {
-  --primary: #a90a14;
-
-  --navSize: 9rem;
-  --green: green;
+  --primary: oklch(39.12% 0.1567 22.24);
+  --black: oklch(14.41% 0 22.24);
+  --green: oklch(55.64% 0.143 145.06);
   --white: white;
   --hoverEffectButtonColor: #adadad77;
+
+  --navSize: 9rem;
 }
 
 html,
 body {
   height: 100%;
   width: 100%;
-  background-color: #7d0915;
+  background-color: var(--primary);
   opacity: 1;
-  background-image: radial-gradient(#080707 1.8px, transparent 1.8px),
-    radial-gradient(#080707 1.8px, #7d0915 1.8px);
+  background-image: radial-gradient(var(--black) 1.8px, transparent 1.8px),
+    radial-gradient(var(--black) 1.8px, var(--primary) 1.8px);
   background-size: 72px 72px;
   background-position: 0 0, 36px 36px;
 }
