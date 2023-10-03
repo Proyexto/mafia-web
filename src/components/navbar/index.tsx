@@ -43,8 +43,12 @@ export const Navbar = () => {
         {showProfileMenu ? (
           <div id="profile-menu" onClick={(e) => e.stopPropagation()}>
             <ul>
-              <li>Configuración</li>
-              <li>Salir</li>
+              <li>
+                <Link href="/settings">Configuración</Link>
+              </li>
+              <li>
+                <Link href="/auth/logout">Salir</Link>
+              </li>
             </ul>
           </div>
         ) : null}
