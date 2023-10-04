@@ -1,3 +1,7 @@
+/* Mixins */
+@import "@/styles/_inputs.scss";
+@import "@/styles/_buttons.scss";
+
 .homeContainer {
   width: 100%;
   height: 100%;
@@ -13,23 +17,19 @@
   }
   form {
     display: flex;
+    align-items: center;
     flex-direction: column;
     gap: 2rem;
+    width: 30rem;
     input {
-      width: 25rem;
-      padding: 0.5rem 1rem;
-      text-align: center;
-      font-size: 2rem;
-      color: black;
-      border-radius: 1rem;
-      border: none;
-      outline: none;
+      @include input-md;
+      color: var(--black);
+      width: 100%;
     }
     button {
-      background-color: black;
-      font-size: 1.5rem;
-      padding: 1rem 3rem;
-      border-radius: 0.75rem;
+      @include button-md;
+      background-color: var(--black);
+      width: 100%;
     }
   }
 }
