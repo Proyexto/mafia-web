@@ -29,10 +29,12 @@ export const FormGuest = ({ listPics }: Props) => {
 
   return (
     <form onSubmit={(e) => onSubmit(e)}>
-      <img src={guestForm.pic} alt={listPics[indexPic].author} />
-      <button type="button" onClick={() => changePic()}>
-        Cambiar
-      </button>
+      <figure>
+        <img src={guestForm.pic} alt={listPics[indexPic].author} />
+        <button type="button" onClick={() => changePic()}>
+          Cambiar
+        </button>
+      </figure>
       <input type="hidden" value={guestForm.pic} />
       <input type="text" placeholder="Usuario" />
       <button type="submit">Ingresar</button>
