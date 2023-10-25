@@ -2,6 +2,7 @@
   "dependencies": {
     "next": "latest",
     "react": "latest",
+    "react-cookie": "^6.1.1",
     "react-dom": "latest",
     "react-icons": "^4.11.0",
     "sass": "^1.68.0"
