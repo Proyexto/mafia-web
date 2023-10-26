@@ -3,9 +3,9 @@ import "./globals.css";
 import "@/styles/normalize.css";
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Bebas_Neue } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+const bebas_Neue = Bebas_Neue({ weight: "400", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Mafia Web",
@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={inter.className}>
+      <body className={bebas_Neue.className}>
         <Navbar />
         <main>{children}</main>
       </body>

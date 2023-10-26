@@ -26,33 +26,7 @@ export const Navbar = () => {
           id="logo"
         />
       </Link>
-      <div id="profileContainer">
-        <div id="profile-details" onClick={() => onClickProfile()}>
-          <span>Eugenio Manolo</span>
-          <figure>
-            <Image
-              src="/img/pfp-default.webp"
-              width={200}
-              height={200}
-              alt="Profile-Picture"
-              id="profile-picture"
-            />
-            <span>Invitado</span>
-          </figure>
-        </div>
-        {showProfileMenu ? (
-          <div id="profile-menu" onClick={(e) => e.stopPropagation()}>
-            <ul>
-              <li>
-                <Link href="/settings">Configuración</Link>
-              </li>
-              <li>
-                <Link href="/auth/logout">Salir</Link>
-              </li>
-            </ul>
-          </div>
-        ) : null}
-      </div>
+      <div></div>
     </nav>
   );
 };
