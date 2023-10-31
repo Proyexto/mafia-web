@@ -29,7 +29,8 @@
     button {
       @include button-md;
       background-color: var(--black);
-      width: 100%;
+      font-size: 2rem;
+      padding: 0.75rem 5rem;
+      }
     }
   }
-}

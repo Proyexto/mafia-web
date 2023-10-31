@@ -10,22 +10,23 @@
   width: 80%;
   border-radius: 1.7rem;
   display: flex;
-  div[id="formGuest"] {
+  div[id="formGuest"], div[id="formLogin"] {
     flex: 1;
     display: flex;
     flex-direction: column;
     text-align: center;
     justify-self: center;
     padding: 5rem;
+    height: 100%;
     gap: 1rem;
     h1 {
       @include title-md;
     }
     form {
+      max-height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       gap: 1rem;
       figure {
         display: flex;
@@ -67,20 +68,16 @@
         @include button-md;
         background-color: var(--primary);
         color: var(--white);
-        width: 20rem;
+        min-width: 50%;
       }
     }
   }
-  div[id="formLogin"] {
-    display: flex;
-    flex: 1;
-    align-self: center;
-    justify-self: center;
-  }
   div[id="gameCode"] {
+    display: none;
     position: absolute;
     right: 50%;
     left: 50%;
     bottom: 0;
   }
 }
+
