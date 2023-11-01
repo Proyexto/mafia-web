@@ -1,11 +1,9 @@
-import { Navbar } from "@/components";
 import "./globals.css";
-import "@/styles/normalize.css";
 
 import type { Metadata } from "next";
-import { Bebas_Neue } from "next/font/google";
+/* import { Bebas_Neue } from "next/font/google";
 
-const bebas_Neue = Bebas_Neue({ weight: "400", subsets: ["latin"] });
+const bebas_Neue = Bebas_Neue({ weight: "400", subsets: ["latin"] }); */
 
 export const metadata: Metadata = {
   title: "Mafia Web",
@@ -19,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={bebas_Neue.className}>
+      <body>
         <main>{children}</main>
       </body>
     </html>

@@ -2,7 +2,7 @@
 import { FormEvent } from "react";
 import Link from "next/link";
 
-export default function Home() {
+export default function SignUp() {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -13,11 +13,13 @@ export default function Home() {
     <section>
       <form onSubmit={onSubmit}>
         <input type="text" placeholder="Nombre" />
-        <button type="submit">Ingresar como invitado</button>
+        <input type="password" placeholder="Contraseña" />
+        <input type="password" placeholder="Confirmar contraseña" />
+        <button type="submit">Registrarse</button>
       </form>
       <div>
+        <Link href="/">Inicio</Link>
         <Link href="/auth/signin">Ingresar</Link>
-        <Link href="/auth/signup">Registrarse</Link>
       </div>
     </section>
   );
