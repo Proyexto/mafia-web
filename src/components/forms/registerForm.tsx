@@ -1,9 +1,15 @@
 "use client";
+import { Image } from "@/types";
 import axios from "axios";
 import { FormEvent, useState } from "react";
 
-export const RegisterForm = () => {
+type Props = {
+  images: Image[];
+}
+
+export const RegisterForm = ({images}: Props) => {
   const [form, setForm] = useState({
+    id_img: images[0],
     email: "",
     username: "",
     pass: "",
@@ -20,12 +26,26 @@ export const RegisterForm = () => {
     else alert("contraseñas distintas");
   };
 
+  const handleChangeImage = (event: FormEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+    const index = images.findIndex((image) => image.id_img === form.id_img.id_img);
+    if(index === images.length - 1){
+      setForm({...form, id_img: images[0]});
+    }
+    else{
+      setForm({...form, id_img: images[index + 1]});
+    }
+  }
+
   const onChange = (event: FormEvent<HTMLInputElement>) => {
     setForm({...form, [event.currentTarget.name]: event.currentTarget.value});
   }
 
   return (
     <form onSubmit={onSubmit}>
+        <img src={form.id_img.URL} alt="Profile-Image" />
+        <button onClick={handleChangeImage}>cambiar</button>
+        <input type="hidden" name="id_img" value={form.id_img.id_img} onChange={onChange} />
         <input type="text" name="email" value={form.email} onChange={onChange}placeholder="Email" />
         <input type="text" name="username" value={form.username} onChange={onChange}placeholder="Usuario" />
         <input type="password" name="pass" value={form.pass} onChange={onChange}placeholder="Contraseña" />
