@@ -1,7 +1,7 @@
 "use client";
 import { FormEvent, useState } from "react";
 
-export const LoginForm = () => {
+export const SignInForm = () => {
   const [form, setForm] = useState({
     email: "",
     password: "",

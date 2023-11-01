@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import Link from "next/link";
-import { RegisterForm } from "@/components";
+import { SignUpForm } from "@/components";
 import axios from "axios";
   
 const getImages = async () =>{
@@ -17,7 +17,7 @@ export default async function SignUp() {
 
   return (
     <section>
-      <RegisterForm images={images}/>
+      <SignUpForm images={images}/>
       <nav>
         <Link href="/">Inicio</Link>
         <Link href="/auth/signin">Ingresar</Link>

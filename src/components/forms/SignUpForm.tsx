@@ -7,7 +7,7 @@ type Props = {
   images: Image[];
 }
 
-export const RegisterForm = ({images}: Props) => {
+export const SignUpForm = ({images}: Props) => {
   const [form, setForm] = useState({
     id_img: images[0],
     email: "",
@@ -20,7 +20,7 @@ export const RegisterForm = ({images}: Props) => {
     event.preventDefault();
 
     if(form.pass === form.confirmPass){
-      axios.post("/api/auth/register", form);
+      axios.post("/api/auth/signup", form);
       alert("creado");
     }
     else alert("contraseñas distintas");

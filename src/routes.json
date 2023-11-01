@@ -1,6 +1,6 @@
 {
   "auth": "/auth",
   "guest": "/auth/guest",
-  "login": "/auth/login",
-  "register": "/auth/signin"
+  "signin": "/auth/signin",
+  "signup": "/auth/signup"
 }
