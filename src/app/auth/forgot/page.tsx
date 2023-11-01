@@ -1,9 +1,9 @@
 "use client";
 import { FormEvent } from "react";
 import Link from "next/link";
-import { GuestForm } from "@/components";
+import { ForgotForm } from "@/components";
 
-export default function Home() {
+export default function SignUp() {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -12,11 +12,11 @@ export default function Home() {
 
   return (
     <section>
-      <GuestForm/>
-      <div>
+      <ForgotForm/>
+      <nav>
+        <Link href="/">Inicio</Link>
         <Link href="/auth/signin">Ingresar</Link>
-        <Link href="/auth/signup">Registrarse</Link>
-      </div>
+      </nav>
     </section>
   );
 }
