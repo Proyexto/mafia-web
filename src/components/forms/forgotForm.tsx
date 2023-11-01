@@ -13,10 +13,14 @@ export const ForgotForm = () => {
     alert("submit");
   };
 
+  const onChange = (event: FormEvent<HTMLInputElement>) => {
+    setForm({...form, [event.currentTarget.name]: event.currentTarget.value});
+  }
+
   return (
     <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Nombre" />
-        <input type="password" placeholder="Contraseña" />
+        <input type="text" name="email" value={form.email} onChange={onChange} placeholder="Nombre" />
+        <input type="password" name="password" value={form.password} onChange={onChange} placeholder="Contraseña" />
         <button type="submit">Recuperar</button>
     </form>
   )

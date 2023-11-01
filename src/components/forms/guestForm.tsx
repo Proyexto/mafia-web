@@ -3,8 +3,7 @@ import { FormEvent, useState } from "react";
 
 export const GuestForm = () => {
   const [form, setForm] = useState({
-    email: "",
-    password: "",
+    name: "",
   });
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -13,9 +12,13 @@ export const GuestForm = () => {
     alert("submit");
   };
 
+  const onChange = (event: FormEvent<HTMLInputElement>) => {
+    setForm({...form, [event.currentTarget.name]: event.currentTarget.value});
+  }
+
   return (
     <form onSubmit={onSubmit}>
-        <input type="text" placeholder="Nombre" />
+        <input type="text" name="name" value={form.name} onChange={onChange} placeholder="Nombre" />
         <button type="submit">Ingresar como invitado</button>
     </form>
   )
