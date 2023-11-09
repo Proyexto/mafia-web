@@ -1,14 +1,9 @@
-import Link from "next/link";
-import { SignInForm } from "@/components";
+import { MainLayout, SignInForm } from "@/components";
 
 export default function SignIn() {
   return (
-    <section>
+    <MainLayout className="flex justify-center items-center">
       <SignInForm/>
-      <nav>
-        <Link href="/">Inicio</Link>
-        <Link href="/auth/signup">Registrarse</Link>
-      </nav>
-    </section>
+    </MainLayout>
   );
 }

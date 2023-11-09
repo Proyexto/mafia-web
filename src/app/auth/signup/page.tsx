@@ -1,6 +1,5 @@
 import { FormEvent } from "react";
-import Link from "next/link";
-import { SignUpForm } from "@/components";
+import { MainLayout, SignUpForm } from "@/components";
 import axios from "axios";
   
 const getImages = async () =>{
@@ -16,12 +15,8 @@ export default async function SignUp() {
   const images = await getImages();
 
   return (
-    <section>
+    <MainLayout className="flex justify-center items-center">
       <SignUpForm images={images}/>
-      <nav>
-        <Link href="/">Inicio</Link>
-        <Link href="/auth/signin">Ingresar</Link>
-      </nav>
-    </section>
+    </MainLayout>
   );
 }

@@ -1,7 +1,6 @@
 "use client";
 import { FormEvent } from "react";
-import Link from "next/link";
-import { ForgotGetForm } from "@/components";
+import { ForgotGetForm, MainLayout } from "@/components";
 
 export default function Forgot() {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
@@ -11,12 +10,8 @@ export default function Forgot() {
   };
 
   return (
-    <section>
+    <MainLayout className="flex justify-center items-center">
       <ForgotGetForm/>
-      <nav>
-        <Link href="/">Inicio</Link>
-        <Link href="/auth/signin">Ingresar</Link>
-      </nav>
-    </section>
+    </MainLayout>
   );
 }
