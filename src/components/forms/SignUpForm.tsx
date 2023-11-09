@@ -28,7 +28,7 @@ export const SignUpForm = ({images}: Props) => {
 
   const handleChangeImage = (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const index = images.findIndex((image) => image.id_img === form.id_img.id_img);
+    const index = images.findIndex((image) => image.id === form.id_img.id);
     if(index === images.length - 1){
       setForm({...form, id_img: images[0]});
     }
@@ -45,7 +45,7 @@ export const SignUpForm = ({images}: Props) => {
     <form onSubmit={onSubmit}>
         <img src={form.id_img.URL} alt="Profile-Image" />
         <button onClick={handleChangeImage}>cambiar</button>
-        <input type="hidden" name="id_img" value={form.id_img.id_img} onChange={onChange} />
+        <input type="hidden" name="id_img" value={form.id_img.id} onChange={onChange} />
         <input type="text" name="email" value={form.email} onChange={onChange}placeholder="Email" />
         <input type="text" name="username" value={form.username} onChange={onChange}placeholder="Usuario" />
         <input type="password" name="pass" value={form.pass} onChange={onChange}placeholder="Contraseña" />

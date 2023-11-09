@@ -9,7 +9,7 @@ export async function POST(req) {
       email,
       username,
       pass,
-      id_img: id_img.id_img,
+      id_img: id_img.id,
     });
     // INSERT INTO `users`(`email`, `username`, `pass`, `id_img`) VALUES ( 'res.email', 'res.email', 'res.email', 2);
     return NextResponse.json(responses);

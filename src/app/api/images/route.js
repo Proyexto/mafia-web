@@ -7,7 +7,6 @@ export async function GET() {
 
     return NextResponse.json(responses);
   } catch (error) {
-    console.log(error);
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
