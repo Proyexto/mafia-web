@@ -19,6 +19,12 @@ export const generateToken = (userId) => {
   return token;
 };
 
+export const generateTemporalToken = (userId) => {
+  const secretKey = getSecretKey();
+  const token = jwt.sign({ userId }, secretKey, { expiresIn: "15m" });
+  return token;
+};
+
 export const verifyToken = (token) => {
   try {
     const secretKey = getSecretKey();

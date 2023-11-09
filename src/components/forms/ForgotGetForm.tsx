@@ -1,16 +1,21 @@
 "use client";
+import axios from "axios";
 import { FormEvent, useState } from "react";
 
-export const ForgotForm = () => {
+export const ForgotGetForm = () => {
   const [form, setForm] = useState({
     email: "",
-    password: "",
   });
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    alert("submit");
+    
+    axios.post("/api/auth/forgot", form).then((response) => {
+      console.log(response.data)
+    }).catch((error) => {
+      console.log(error.response.data)
+    });
   };
 
   const onChange = (event: FormEvent<HTMLInputElement>) => {
@@ -19,8 +24,7 @@ export const ForgotForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-        <input type="text" name="email" value={form.email} onChange={onChange} placeholder="Nombre" />
-        <input type="password" name="password" value={form.password} onChange={onChange} placeholder="Contraseña" />
+        <input type="text" name="email" value={form.email} onChange={onChange} placeholder="Email" />
         <button type="submit">Recuperar</button>
     </form>
   )

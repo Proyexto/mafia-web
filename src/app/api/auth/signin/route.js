@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server";
 import { mysql } from "@/libs/mysql";
-import jwt from "jsonwebtoken";
-import { generateToken, getSecretKey, verifyToken } from "@/app/api/utils/";
+import { generateToken } from "@/app/api/utils/";
 
 export async function POST(req) {
   try {
     const { email, password } = await req.json();
 
-    console.log(email, password);
     const responses = await mysql.query(
       "SELECT id_user FROM users WHERE email = ? AND pass = ?",
       [email, password]

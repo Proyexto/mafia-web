@@ -1,18 +1,12 @@
 "use client";
 import { FormEvent } from "react";
 import Link from "next/link";
-import { ForgotGetForm } from "@/components";
+import { ForgotChangeForm } from "@/components";
 
-export default function Forgot() {
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-
-    alert("submit");
-  };
-
+export default function Forgot({params: {token}}: {params: {token: string}}) {
   return (
     <section>
-      <ForgotGetForm/>
+      <ForgotChangeForm token={token}/>
       <nav>
         <Link href="/">Inicio</Link>
         <Link href="/auth/signin">Ingresar</Link>
