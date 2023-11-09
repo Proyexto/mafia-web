@@ -20,8 +20,16 @@ export const SignUpForm = ({images}: Props) => {
     event.preventDefault();
 
     if(form.pass === form.confirmPass){
-      axios.post("/api/auth/signup", form);
-      alert("creado");
+      axios.post("/api/auth/signup", form).then(res =>{
+      alert("creado")
+    }).catch((error) => {
+        if(error.response.status === 409){
+          alert("El usuario ya existe");
+        }
+        else{
+          alert("Error desconocido");
+        }
+      });
     }
     else alert("contraseñas distintas");
   };
