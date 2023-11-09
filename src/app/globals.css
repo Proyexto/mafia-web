@@ -1,6 +1,12 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+*/
 
 :root {
   --primary: #a31629;
@@ -18,4 +24,19 @@
   --hoverEffectButtonColor: #adadad77;
 
   --navSize: 9rem;
+}
+
+html {
+  background: url("/assets/images/background.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color-scheme: dark light;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
 }

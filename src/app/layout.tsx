@@ -1,13 +1,13 @@
 import "./globals.css";
-
+import { Footer, Navbar } from "@/components";
 import type { Metadata } from "next";
-/* import { Bebas_Neue } from "next/font/google";
 
+/* import { Bebas_Neue } from "next/font/google";
 const bebas_Neue = Bebas_Neue({ weight: "400", subsets: ["latin"] }); */
 
 export const metadata: Metadata = {
   title: "Mafia Web",
-  description: "Creado por Proyexto (E.T.N.°26 - 6° 10°)",
+  description: 'Juego Web de Rol Creado por Proyexto (E.T.N.°26 "Confederación Suiza" - 6° 10° - 2023)',
 };
 
 export default function RootLayout({
@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body>
-        <main>{children}</main>
+        <Navbar/>
+        {children}
+        <Footer/>
       </body>
     </html>
   );
