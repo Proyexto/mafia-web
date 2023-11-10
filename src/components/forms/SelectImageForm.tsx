@@ -1,26 +1,46 @@
 "use client";
 import { useSessionStatus } from "@/hooks/useSessionStatus";
 import { Image } from "@/types";
-import { ButtonHTMLAttributes, FormEvent, useState } from "react";
+import axios from "axios";
+import { FormEvent, MouseEvent, useState } from "react";
 
 interface Props {
   images: Image[];
 }
 
 export const SelectImageForm = ({images}: Props) => {
-  const [session, setSession, getToken, setToken] = useSessionStatus(false)
+  const [session, setSession, getToken, setToken] = useSessionStatus(true)
   const [selectedImage, setSelectedImage] = useState(images[0])
 
-  const handleBack = (e: any) => {
+  const handleBack = (e: MouseEvent<HTMLElement>) => {
     if (images.indexOf(selectedImage) - 1 >= 0) {
       setSelectedImage(images[images.indexOf(selectedImage) - 1])
     }
   }
 
-  const handleNext = (e: any) => {
+  const handleNext = (e: MouseEvent<HTMLElement>) => {
     if (images.indexOf(selectedImage) + 1 < images.length) {
       setSelectedImage(images[images.indexOf(selectedImage) + 1])
     }
+  }
+
+  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const data = new FormData(event.currentTarget);
+
+    axios.post("/api/settings/image",
+      {
+        idImage: data.get("idImage"),
+        token: getToken(),
+      }
+    ).then((response) => {
+      if (response.status === 200) {
+        alert("imagen cambiada")
+      }
+    }).catch((error) => {
+        console.log(error)
+    });
   }
 
   return (
@@ -38,7 +58,7 @@ export const SelectImageForm = ({images}: Props) => {
           </svg>
         </button>
       </div>
-      <form>
+      <form onSubmit={onSubmit}>
         <input type="hidden" name="idImage" value={selectedImage.id} />
         <button type="submit" className="w-full mt-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cambiar Avatar</button>
       </form>
