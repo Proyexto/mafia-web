@@ -25,7 +25,9 @@ export async function POST(req) {
       id_img: id_img.id,
     });
 
-    return NextResponse.json(generateToken(responses.insertId));
+    return NextResponse.json({
+      token: generateToken(responses.insertId),
+    });
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: error.message }, { status: 500 });

@@ -1,4 +1,5 @@
 "use client";
+import { useSessionStatus } from "@/hooks/useSessionStatus";
 import { Image } from "@/types";
 import axios from "axios";
 import { FormEvent, useState } from "react";
@@ -8,6 +9,7 @@ type Props = {
 }
 
 export const SignUpForm = ({images}: Props) => {
+  const {setSessionStatus, setTokenCookie} = useSessionStatus(false);
   const [form, setForm] = useState({
     id_img: images[0],
     email: "",
@@ -22,6 +24,9 @@ export const SignUpForm = ({images}: Props) => {
     if(form.pass === form.confirmPass){
       axios.post("/api/auth/signup", form).then(res =>{
       alert("creado")
+      
+      setTokenCookie(res.data.token);
+      setSessionStatus(true);
     }).catch((error) => {
         if(error.response.status === 409){
           alert("El usuario ya existe");

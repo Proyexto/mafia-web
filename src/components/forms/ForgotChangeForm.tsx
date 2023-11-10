@@ -1,8 +1,10 @@
 "use client";
+import { useSessionStatus } from "@/hooks/useSessionStatus";
 import axios from "axios";
 import { FormEvent, useState } from "react";
 
 export const ForgotChangeForm = ({token}: {token: string}) => {
+  const {setSessionStatus, setTokenCookie} = useSessionStatus(false);
   const [form, setForm] = useState({
     newPass: "",
     confirmNewPass: "",
@@ -16,8 +18,11 @@ export const ForgotChangeForm = ({token}: {token: string}) => {
       return;
     }
 
-    axios.post("/api/auth/forgot/" + token, form).then((response) => {
-      alert(response.data.message)
+    axios.post("/api/auth/forgot/" + token, form).then((res) => {
+      alert(res.data.message)
+
+      setTokenCookie(res.data.token);
+      setSessionStatus(true);
     }).catch((error) => {
       console.log(error.response.data)
     });

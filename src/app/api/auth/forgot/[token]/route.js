@@ -27,7 +27,10 @@ export async function POST(req, res) {
       );
     }
 
-    return NextResponse.json({ message: "Contraseña actualizada" });
+    return NextResponse.json({
+      message: "Contraseña actualizada",
+      token: generateTemporalToken(getUser[0].id_user),
+    });
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: error.message }, { status: 500 });

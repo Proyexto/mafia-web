@@ -1,8 +1,10 @@
 "use client";
+import { useSessionStatus } from "@/hooks/useSessionStatus";
 import axios from "axios";
 import { FormEvent, useState } from "react";
 
 export const ForgotGetForm = () => {
+  const {} = useSessionStatus(false);
   const [form, setForm] = useState({
     email: "",
   });
@@ -11,8 +13,8 @@ export const ForgotGetForm = () => {
     event.preventDefault();
 
     
-    axios.post("/api/auth/forgot", form).then((response) => {
-      console.log(response.data)
+    axios.post("/api/auth/forgot", form).then((res) => {
+      console.log(res.data)
     }).catch((error) => {
       console.log(error.response.data)
     });

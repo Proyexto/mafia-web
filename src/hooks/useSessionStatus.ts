@@ -46,5 +46,5 @@ export const useSessionStatus = (isSessionRequired: boolean) => {
       });
   }, [sessionStatus]);
 
-  return [sessionStatus, setSessionStatus, getTokenSession, setTokenCookie];
+  return { sessionStatus, setSessionStatus, getTokenSession, setTokenCookie };
 };

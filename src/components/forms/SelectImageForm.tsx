@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const SelectImageForm = ({images}: Props) => {
-  const [session, setSession, getToken, setToken] = useSessionStatus(true)
+  const {getTokenSession} = useSessionStatus(true)
   const [selectedImage, setSelectedImage] = useState(images[0])
 
   const handleBack = (e: MouseEvent<HTMLElement>) => {
@@ -32,7 +32,7 @@ export const SelectImageForm = ({images}: Props) => {
     axios.post("/api/settings/image",
       {
         idImage: data.get("idImage"),
-        token: getToken(),
+        token: getTokenSession(),
       }
     ).then((response) => {
       if (response.status === 200) {

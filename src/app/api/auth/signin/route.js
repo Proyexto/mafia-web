@@ -16,7 +16,9 @@ export async function POST(req) {
         { status: 401 }
       );
     }
-    return NextResponse.json(generateToken(responses[0].id_user));
+    return NextResponse.json({
+      token: generateToken(responses[0].id_user),
+    });
   } catch (error) {
     console.log(error);
     return NextResponse.json({ message: error.message }, { status: 500 });

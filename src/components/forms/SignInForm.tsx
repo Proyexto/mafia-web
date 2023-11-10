@@ -1,8 +1,10 @@
 "use client";
+import { useSessionStatus } from "@/hooks/useSessionStatus";
 import axios from "axios";
 import { FormEvent, useState } from "react";
 
 export const SignInForm = () => {
+  const {setSessionStatus, setTokenCookie} = useSessionStatus(false);
   const [form, setForm] = useState({
     email: "",
     password: "",
@@ -11,9 +13,11 @@ export const SignInForm = () => {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    axios.post("/api/auth/signin", form).then((response) => {
-      console.log(response.data)
+    axios.post("/api/auth/signin", form).then((res) => {
       alert("ingreso")
+
+      setTokenCookie(res.data.token);
+      setSessionStatus(true);
     }).catch((error) => {
       if(error.response.status === 401){
         alert("Usuario o contraseña incorrectos");
