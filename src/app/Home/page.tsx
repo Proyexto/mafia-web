@@ -1,6 +1,8 @@
 import { TextTitle, MainLayout, Text } from "@/components";
+import { setTokenCookie } from "@/utils/jwtCookies";
 
 export default function Home() {
+  setTokenCookie('token');
   return (
     <MainLayout>
       <header className="bg-background bg-fixed parala flex w-full min-h-[60vh] bg-contain bg-center bg-no-repeat bg-[#a41628]"/>
