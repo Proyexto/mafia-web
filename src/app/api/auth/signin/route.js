@@ -22,3 +22,5 @@ export async function POST(req) {
     return NextResponse.json({ message: error.message }, { status: 500 });
   }
 }
+
+// AND `del_at` IS NULL;
