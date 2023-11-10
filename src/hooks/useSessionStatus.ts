@@ -3,8 +3,8 @@ import { getCookie, setCookie } from "cookies-next";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 
-export const useSessionStatus = (isSessionRequired: boolean) => {
-  const [sessionStatus, setSessionStatus] = useState<boolean>();
+export const useSessionStatus = (isSessionRequired: boolean | null) => {
+  const [sessionStatus, setSessionStatus] = useState<boolean | null>();
 
   useEffect(() => {
     if (sessionStatus === false && isSessionRequired === true) {
