@@ -7,7 +7,7 @@ export const Footer = () => {
           <nav className="flex flex-wrap justify-center -mx-5 -my-2">
               <div className="px-5 py-2">
                   <Link href="/tutorial" className="text-base leading-6 text-gray-500 hover:text-gray-300">
-                      ¿Qué es mafia?
+                      Tutorial
                   </Link>
               </div>
               <div className="px-5 py-2">

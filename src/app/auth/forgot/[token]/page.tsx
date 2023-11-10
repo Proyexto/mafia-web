@@ -1,4 +1,3 @@
-"use client";
 import { ForgotChangeForm, MainLayout } from "@/components";
 
 export default function Forgot({params: {token}}: {params: {token: string}}) {

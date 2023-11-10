@@ -3,7 +3,6 @@ import { useSessionStatus } from "@/hooks/useSessionStatus";
 import { FormEvent, useState } from "react";
 
 export const GuestForm = () => {
-  const [session, setSession, getToken, setToken] = useSessionStatus(true)
   const [form, setForm] = useState({
     name: "",
   });
