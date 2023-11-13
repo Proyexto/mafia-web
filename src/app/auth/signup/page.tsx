@@ -1,9 +1,9 @@
 import { FormEvent } from "react";
 import { MainLayout, SignUpForm } from "@/components";
-import axios from "axios";
+import { axiosInstance } from "@/utils/axiosInstance";
   
 const getImages = async () =>{
-  const response = await axios.get("http://localhost:3000/api/images").then(res =>{
+  const response = await axiosInstance.get("/api/images").then(res =>{
     return res.data;
   }).catch((err) => {
     console.log(err)

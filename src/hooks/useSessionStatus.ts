@@ -1,3 +1,4 @@
+import { axiosInstance } from "@/utils/axiosInstance";
 import axios from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import { redirect } from "next/navigation";
@@ -29,8 +30,8 @@ export const useSessionStatus = (isSessionRequired: boolean | null) => {
   };
 
   useEffect(() => {
-    axios
-      .post("http://localhost:3000/api/auth/verify/", {
+    axiosInstance
+      .post("/api/auth/verify/", {
         token: getTokenSession(),
       })
       .then((res) => {

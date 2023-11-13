@@ -1,9 +1,8 @@
 import { SelectImageForm, MainLayout } from "@/components";
-import axios from "axios";
+import { axiosInstance } from "@/utils/axiosInstance";
 
 const getImages = async () => {
-  const images = await axios.get("http://localhost:3000/api/images").then(res => {return res.data}).catch((err) => console.log(err))
-
+  const images = await axiosInstance.get("/api/images").then(res => {return res.data}).catch((err) => console.log(err))
   return images
 }
 
@@ -12,7 +11,6 @@ export default async function Guest() {
   
   return (
     <MainLayout className="flex justify-center items-center">
-      <SelectImageForm images={images}/>
     </MainLayout>
   );
 }
