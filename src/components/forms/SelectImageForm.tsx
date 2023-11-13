@@ -1,7 +1,7 @@
 "use client";
 import { useSessionStatus } from "@/hooks/useSessionStatus";
 import { Image } from "@/types";
-import axios from "axios";
+import { axiosInstance } from "@/utils/axiosInstance";
 import { FormEvent, MouseEvent, useState } from "react";
 
 interface Props {
@@ -29,7 +29,7 @@ export const SelectImageForm = ({images}: Props) => {
 
     const data = new FormData(event.currentTarget);
 
-    axios.post("/api/settings/image",
+    axiosInstance.post("/api/settings/image",
       {
         idImage: data.get("idImage"),
         token: getTokenSession(),

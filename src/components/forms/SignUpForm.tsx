@@ -1,7 +1,7 @@
 "use client";
 import { useSessionStatus } from "@/hooks/useSessionStatus";
 import { Image } from "@/types";
-import axios from "axios";
+import { axiosInstance } from "@/utils/axiosInstance";
 import { FormEvent, useState } from "react";
 
 type Props = {
@@ -22,7 +22,7 @@ export const SignUpForm = ({images}: Props) => {
     event.preventDefault();
 
     if(form.pass === form.confirmPass){
-      axios.post("/api/auth/signup", form).then(res =>{
+      axiosInstance.post("/api/auth/signup", form).then(res =>{
       alert("creado")
       
       setTokenCookie(res.data.token);

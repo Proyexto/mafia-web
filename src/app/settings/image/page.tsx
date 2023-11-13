@@ -11,6 +11,7 @@ export default async function Guest() {
   
   return (
     <MainLayout className="flex justify-center items-center">
+      <SelectImageForm images={images}/>
     </MainLayout>
   );
 }

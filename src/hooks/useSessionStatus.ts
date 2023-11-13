@@ -1,5 +1,4 @@
 import { axiosInstance } from "@/utils/axiosInstance";
-import axios from "axios";
 import { getCookie, setCookie } from "cookies-next";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";

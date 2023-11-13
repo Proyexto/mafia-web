@@ -1,6 +1,6 @@
 "use client";
 import { useSessionStatus } from "@/hooks/useSessionStatus";
-import axios from "axios";
+import { axiosInstance } from "@/utils/axiosInstance";
 import { FormEvent, useState } from "react";
 
 export const SignInForm = () => {
@@ -13,7 +13,7 @@ export const SignInForm = () => {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    axios.post("/api/auth/signin", form).then((res) => {
+    axiosInstance.post("/api/auth/signin", form).then((res) => {
       alert("ingreso")
 
       setTokenCookie(res.data.token);
